@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Aplikasi By CMPL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: #fff;
+      padding: 20px;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .app {
+      background-color: #fff;
+      color: #333;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .app-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .app-title {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .download-btn {
+      background-color: #0072ff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background-color: #005bd1;
+    }
+    .license-info {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .wa-contact {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .wa-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .wa-contact a:hover {
+      background-color: #1ebc59;
+    }
+    .wa-contact img {
+      width: 24px;
+      height: 24px;
+    }
+    .tutorial {
+      background-color: #fff;
+      color: #333;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .tutorial h3 {
+      margin-top: 0;
+      color: #0072ff;
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    @media (max-width: 500px) {
+      .app {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Aplikasi Lisensi By CMPL</h1>
+  <div class="container" id="download-list"></div>
+
+  <div class="container tutorial" id="tutorial-section" style="display: none;">
+    <h3>📽️ Tutorial Ekstrak Folder</h3>
+    <p>Ikuti panduan video berikut untuk mengekstrak file ZIP aplikasi sebelum digunakan.</p>
+    <video controls>
+      <source src="Tutorial Extract/Cara Extract Folder Apk.mp4" type="video/mp4">
+      Browser Anda tidak mendukung pemutar video.
+    </video>
+  </div>
+
+  <div class="license-info">
+    <p>📢 Untuk mendapatkan lisensi atau bantuan, silakan hubungi kami melalui WhatsApp:</p>
+    <div class="wa-contact">
+      <a href="https://wa.me/6282191333096" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        Admin 082194047784
+      </a>
+      <a href="https://wa.me/6282194047784" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        Admin 082191333096
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const iconList = ["📂", "🗂️", "📁", "📁", "📁", "📁"];
+
+    fetch('files.json')
+      .then(response => response.json())
+      .then(files => {
+        const container = document.getElementById('download-list');
+        const tutorial = document.getElementById('tutorial-section');
+
+        files.forEach((file, index) => {
+          const emoji = iconList[index % iconList.length];
+          const fileName = file.filename.replace(".zip", "").replace(".exe", "").replace(/[_\-]/g, " ").toUpperCase();
+          const price = file.price;
+
+          const app = document.createElement('div');
+          app.className = 'app';
+          app.innerHTML = `
+            <div class="app-info">
+              <div style="font-size: 1.8em;">${emoji}</div>
+              <div>
+                <div class="app-title">${fileName}</div>
+                <div style="font-size: 0.9em; color: #666;">Price: <strong>${price}</strong></div>
+              </div>
+            </div>
+            <a href="${file.url}" target="_blank">
+              <button class="download-btn">Download</button>
+            </a>
+          `;
+          container.appendChild(app);
+
+          if (file.filename.toUpperCase().includes("USER_ID_BOT")) {
+            tutorial.style.display = "block";
+          }
+        });
+      })
+      .catch(err => {
+        document.getElementById('download-list').innerHTML = "<p>⚠️ Gagal memuat daftar aplikasi.</p>";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
