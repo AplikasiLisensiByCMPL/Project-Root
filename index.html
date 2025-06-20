@@ -117,10 +117,10 @@
   </style>
 </head>
 <body>
-  <h1>Aplikasi Lisensi By CMPL</h1>
+  <h1>Aplikasi Tools HGI By CMPL</h1>
   <div class="container" id="download-list"></div>
 
-  <div class="container tutorial" id="tutorial-section" style="display: none;">
+  <div class="container tutorial" id="tutorial-section">
     <h3>📽️ Tutorial Ekstrak Folder</h3>
     <p>Ikuti panduan video berikut untuk mengekstrak file ZIP aplikasi sebelum digunakan.</p>
     <video controls>
@@ -172,10 +172,6 @@
             </a>
           `;
           container.appendChild(app);
-
-          if (file.filename.toUpperCase().includes("USER_ID_BOT")) {
-            tutorial.style.display = "block";
-          }
         });
       })
       .catch(err => {
