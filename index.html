@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download Aplikasi By CMPL</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1WvNpzVqp7yDfzxuSXt8DUjPudest1Vjl" />
-  <meta property="og:type" content="website" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -120,11 +118,45 @@
   <h1>Aplikasi Tools HGI By CMPL</h1>
   <div class="container" id="download-list"></div>
 
+  <div class="container tutorial beli-lisensi">
+    <h3 style="color:#0072ff;">💳 Beli Lisensi</h3>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
+      <div style="display:flex; align-items:center; gap:10px; background:none; color:inherit; border-radius:10px; padding:10px 20px; min-width:260px; border:2px solid #0072ff; box-shadow:0 2px 8px rgba(0,0,0,0.05); position:relative;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSalNd2BYcKeh2wyY7FxGchGXbHamkhO4fyng&s" alt="Logo DANA" style="width:36px; height:36px;">
+        <div>
+          <strong>DANA:</strong> <span id="dana-rek">082194047784</span><br>
+          <strong>A/N:</strong> HERMANSYAH
+        </div>
+        <button onclick="copyRek('dana-rek', 'notif-dana')" title="Salin nomor rekening" style="background:none; border:none; padding:2px; margin-left:6px; cursor:pointer; position:absolute; right:10px; top:50%; transform:translateY(-50%);"><img src="data:image/png;base64,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" alt="Salin" style="width:18px; height:18px;"></button>
+        </div>
+        <div id="notif-dana" class="notif-salin" style="display:none; margin-top:4px; background:#0072ff; color:#fff; padding:3px 12px; border-radius:8px; font-size:0.9em; z-index:2; text-align:center;">Nomor rekening berhasil disalin!</div>
+        <div style="display:flex; align-items:center; gap:10px; background:none; color:inherit; border-radius:10px; padding:10px 20px; min-width:260px; border:2px solid #0072ff; box-shadow:0 2px 8px rgba(0,0,0,0.05); position:relative;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAAY0BAh_SAF35BFR_k7zK1uJTsIUa-ssAEw4N3FSD7RRdAh4-38jFLTP4kS_ocRA-d0k&usqp=CAU" alt="Logo SeaBank" style="width:36px; height:36px; background:#fff; border-radius:8px;">
+          <div>
+            <strong>SEABANK:</strong> <span id="seabank-rek">901956661495</span><br>
+            <strong>A/N:</strong> HERMANSYAH
+          </div>
+          <button onclick="copyRek('seabank-rek', 'notif-seabank')" title="Salin nomor rekening" style="background:none; border:none; padding:2px; margin-left:6px; cursor:pointer; position:absolute; right:10px; top:50%; transform:translateY(-50%);"><img src="data:image/png;base64,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" alt="Salin" style="width:18px; height:18px;"></button>
+        </div>
+        <div id="notif-seabank" class="notif-salin" style="display:none; margin-top:4px; background:#0072ff; color:#fff; padding:3px 12px; border-radius:8px; font-size:0.9em; z-index:2; text-align:center;">Nomor rekening berhasil disalin!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container tutorial">
+    <h3>🛡️ Cara Setting Matikan Virus & Threat Protection</h3>
+    <ol>
+      <li>Buka <strong>Windows Security</strong> → <strong>Virus & Threat Protection</strong>.</li>
+      <li>Klik <strong>Manage Settings</strong>.</li>
+      <li>Nonaktifkan <strong>Real-time Protection</strong>.</li>
+    </ol>
+  </div>
+
   <div class="container tutorial" id="tutorial-section">
     <h3>📽️ Tutorial Ekstrak Folder</h3>
     <p>Ikuti panduan video berikut untuk mengekstrak file ZIP aplikasi sebelum digunakan.</p>
     <video controls>
-      <source src="Tutorial Extract/Cara Extract Folder Apk.mp4" type="video/mp4">
+      <source src="Tutorial Extract/Extract Folder Apk.mp4" type="video/mp4">
       Browser Anda tidak mendukung pemutar video.
     </video>
   </div>
@@ -132,11 +164,11 @@
   <div class="license-info">
     <p>📢 Untuk mendapatkan lisensi atau bantuan, silakan hubungi kami melalui WhatsApp:</p>
     <div class="wa-contact">
-      <a href="https://wa.me/6282194047784" target="_blank">
+      <a href="https://wa.me/6282191333096" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
         Admin 082194047784
       </a>
-      <a href="https://wa.me/6282191333096" target="_blank">
+      <a href="https://wa.me/6282194047784" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
         Admin 082191333096
       </a>
@@ -144,7 +176,7 @@
   </div>
 
   <script>
-    const iconList = ["📁", "📁", "📁", "📁", "📁", "📁"];
+    const iconList = ["📂", "🗂️", "📁", "📁", "📁", "📁"];
 
     fetch('files.json')
       .then(response => response.json())
@@ -178,6 +210,21 @@
         document.getElementById('download-list').innerHTML = "<p>⚠️ Gagal memuat daftar aplikasi.</p>";
         console.error(err);
       });
+
+    function copyRek(id, notifId) {
+      const el = document.getElementById(id);
+      const notif = document.getElementById(notifId);
+      if (!el || !notif) return;
+      const text = el.innerText || el.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        notif.style.display = 'block';
+        setTimeout(() => { notif.style.display = 'none'; }, 1600);
+      }, function() {
+        notif.style.display = 'block';
+        notif.innerText = 'Gagal menyalin nomor rekening.';
+        setTimeout(() => { notif.style.display = 'none'; notif.innerText = 'Nomor rekening berhasil disalin!'; }, 1600);
+      });
+    }
   </script>
 </body>
 </html>
